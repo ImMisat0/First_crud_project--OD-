@@ -1,0 +1,341 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Sep 27, 2024 at 02:19 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `laravel-10-task-list`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cache`
+--
+
+CREATE TABLE `cache` (
+  `key` varchar(255) NOT NULL,
+  `value` mediumtext NOT NULL,
+  `expiration` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cache_locks`
+--
+
+CREATE TABLE `cache_locks` (
+  `key` varchar(255) NOT NULL,
+  `owner` varchar(255) NOT NULL,
+  `expiration` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `queue` varchar(255) NOT NULL,
+  `payload` longtext NOT NULL,
+  `attempts` tinyint(3) UNSIGNED NOT NULL,
+  `reserved_at` int(10) UNSIGNED DEFAULT NULL,
+  `available_at` int(10) UNSIGNED NOT NULL,
+  `created_at` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_batches`
+--
+
+CREATE TABLE `job_batches` (
+  `id` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `total_jobs` int(11) NOT NULL,
+  `pending_jobs` int(11) NOT NULL,
+  `failed_jobs` int(11) NOT NULL,
+  `failed_job_ids` longtext NOT NULL,
+  `options` mediumtext DEFAULT NULL,
+  `cancelled_at` int(11) DEFAULT NULL,
+  `created_at` int(11) NOT NULL,
+  `finished_at` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '0001_01_01_000000_create_users_table', 1),
+(2, '0001_01_01_000001_create_cache_table', 1),
+(3, '0001_01_01_000002_create_jobs_table', 1),
+(4, '2024_08_28_160948_create_tasks_table', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_reset_tokens`
+--
+
+CREATE TABLE `password_reset_tokens` (
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sessions`
+--
+
+CREATE TABLE `sessions` (
+  `id` varchar(255) NOT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `ip_address` varchar(45) DEFAULT NULL,
+  `user_agent` text DEFAULT NULL,
+  `payload` longtext NOT NULL,
+  `last_activity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sessions`
+--
+
+INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
+('sDpGf2alWwIOkOfxzDB2JFhWwlczucWPS6yIqF7A', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 OPR/113.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiYmdlSmtYRUdIak43M3kyV0JTVE1RZVA4Z2w5ZjJwRDlpem5yYTRrSiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC90YXNrcyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1726123977),
+('zE2AOjDMNTvHvWI1pDN88t4uUkuDpOMkaUt4emIo', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36 OPR/113.0.0.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidExna2RRck5RV0JCRmE1S1ZMOXBkbUY5eDkzRmQxVEhacER3VEU2ciI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC90YXNrcyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1727439049);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `long_description` text DEFAULT NULL,
+  `completed` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `title`, `description`, `long_description`, `completed`, `created_at`, `updated_at`) VALUES
+(2, 'Optio hic qui perferendis voluptatem.', 'Nobis perferendis vel ipsa soluta. Sint ex ex voluptates et error eveniet aperiam. Aut ut corporis libero quia possimus. Enim magni quasi amet et qui nisi velit. Nobis aut voluptates unde voluptate at corrupti.', 'Aut qui ea eum molestias qui nobis. Voluptatum eum debitis est aspernatur exercitationem tenetur repellendus ducimus. Corporis aliquam quam commodi aperiam nulla neque corporis amet. Officia eligendi repudiandae nam consequatur provident quia non. Commodi modi cum similique id dolorem. Eveniet quo quisquam occaecati deleniti. Maxime eaque qui veritatis ut nobis reprehenderit. Distinctio qui ipsam deserunt deserunt repudiandae. Dolorem aperiam occaecati odio nihil.', 1, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(3, 'Cumque temporibus culpa est sunt voluptatem.', 'Consequuntur eos dolorem excepturi debitis voluptatem fugiat aliquid nobis. Fuga impedit vitae et ut nam maiores. Laboriosam qui aliquam sed porro inventore ipsum deleniti officia.', 'Asperiores qui eum distinctio voluptatum ipsam ratione molestiae. Officia officia voluptas est dolores dicta illo. Commodi qui quos ullam repellendus quibusdam quia magnam. Cumque minus suscipit non incidunt dolor nam. Ducimus voluptas et beatae repellat voluptates expedita et. Quas consequatur sint tempora iure eaque.', 0, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(4, 'Vel et quia dicta sint vitae.', 'Eum ab et tenetur nostrum qui aut. Sed dignissimos excepturi ipsum sequi aut eaque magni. Impedit doloribus sint aut aliquam sit illum.', 'Harum voluptas et expedita molestias est quas error. Minus rerum et vel facilis. Et facilis sit aperiam voluptas velit. Cupiditate alias nam nihil est ad culpa. Ex temporibus sapiente atque autem fugiat.', 1, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(5, 'Tenetur eius sapiente omnis repudiandae voluptatem soluta.', 'Perspiciatis et temporibus quod odit dolore quisquam optio deleniti. Sit est quia ut cupiditate. Cupiditate tempora sunt aut autem doloribus. Sit ut est delectus consequatur et autem eius.', 'Consequatur maxime doloremque voluptate maxime facilis. Asperiores et laudantium quae libero autem dolores saepe. Officiis qui ea sit consequuntur voluptas quae veniam. Officia qui et sequi. Incidunt eos consequuntur sunt voluptate. Qui et repellat corrupti aperiam incidunt. Velit qui consequatur voluptates aut quia perferendis et voluptatem. Blanditiis eum ullam ducimus aut est. Quo quam quia voluptas sunt placeat similique aut sunt. Recusandae doloremque itaque provident natus perspiciatis.', 0, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(6, 'Sed eius accusantium corrupti consequatur quibusdam voluptatem qui.', 'Et maxime sed aliquam voluptatem. Quia eius corrupti qui quas quis neque culpa. Dolore odio sunt quibusdam illo quas. Perferendis id deserunt eius ut voluptatibus.', 'Animi iste et possimus provident aut minus. Voluptas sit quod tenetur voluptas. Inventore rerum sapiente vel sed voluptatem explicabo ut. Esse ut eos quasi velit quia harum dolorum. Officiis consequatur reiciendis eum enim minima tenetur et est. Quia aut dolor pariatur. Sit sint corporis fugit laudantium earum. Possimus voluptates adipisci quia et officiis. Voluptatum beatae ipsa nostrum. Id quia ea tempora deserunt ea.', 0, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(7, 'Animi eius quae dignissimos veniam nisi.', 'Dicta tempora voluptates dolor. Voluptatem delectus vel sed illo neque et eos. Illo quis ea vero libero ratione adipisci omnis.', 'Nihil quos omnis enim temporibus magnam quo corporis accusantium. Ipsum qui eveniet reiciendis. Neque laudantium magni quis a ut qui velit. Aliquid adipisci impedit occaecati inventore laboriosam aut est libero. Unde esse omnis quia molestiae. Eos numquam et cum voluptatibus. Beatae deserunt inventore iste ut. Aut et distinctio occaecati numquam quis ut neque.', 0, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(8, 'Magnam beatae veritatis vitae doloribus.', 'Similique sunt nihil tempore qui pariatur consequatur. Nobis sit sed expedita dolore ab rem sunt. Molestias eos ea atque odit ut consectetur. Occaecati iusto ut quidem qui illum ut.', 'Fugit deserunt saepe magni voluptatem illum eum. Ullam eos modi alias nesciunt numquam animi nostrum voluptatem. Nihil distinctio ipsam quis impedit aliquid totam atque. Et perspiciatis et doloremque. Maxime sapiente ipsam repudiandae sed. Sapiente sed voluptas quia itaque commodi quaerat. Eius accusantium animi illum ut accusamus autem ut deserunt. Nihil quia quibusdam qui enim velit.', 0, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(9, 'Rerum et laborum voluptatem a.', 'Et et vel eius ex. Quo aliquam numquam nam quisquam delectus qui iure. Officiis voluptas incidunt ad sunt sit minus. Sed qui qui soluta harum vitae.', 'Officiis voluptatem veniam velit sunt fugiat autem qui. Quisquam quae corrupti necessitatibus. Tenetur sapiente aliquid nemo quaerat. Officiis assumenda laboriosam dolorum accusantium. Ipsa qui maxime consectetur repudiandae. Sit provident velit exercitationem earum ullam. Et fugiat iste consequatur aut autem cum eligendi. Sed non esse ut aut possimus est nam. Illo soluta dolor distinctio enim omnis in nostrum et.', 1, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(10, 'Dignissimos placeat aut similique.', 'Dolore iusto est fugit nihil odio incidunt. Nobis aut doloremque quisquam corrupti id quo rerum. Vero molestiae nam aliquid. Dolorum consequatur pariatur quas ea.', 'Tempora molestias quia totam qui. Soluta praesentium placeat ut et rem quo tenetur est. Facilis omnis quasi cupiditate. Accusantium fugit accusantium maxime quia. Eos omnis incidunt iure consectetur voluptates.', 0, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(11, 'Voluptatem non qui cumque non.', 'Dicta voluptates rerum culpa et ducimus fugit culpa voluptatem. Eius nobis consequuntur voluptatem est est occaecati. Quis laboriosam et dolores aliquid veniam. Ea non et debitis distinctio et non.', 'Placeat cupiditate mollitia modi explicabo porro id. Et enim quo et optio accusamus. Similique facere non nihil animi corrupti. Autem eum maiores aliquam sit labore consequatur error. Praesentium voluptas placeat est reprehenderit modi at.', 0, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(12, 'Ab at et corrupti deleniti.', 'Ex quidem deleniti aliquid id perspiciatis. Nulla voluptatem velit asperiores cumque. Recusandae consequatur repellendus iure et fugiat. Accusantium laboriosam vel provident placeat voluptate est.', 'Minus sapiente harum voluptate a aut. Vero illo perferendis consequuntur qui. Itaque aspernatur libero dolor in dolor. Doloremque veritatis accusantium placeat totam eum vel impedit qui. Quod porro expedita unde magni sit accusantium aut.', 1, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(13, 'Qui sit et in tempora aspernatur aliquid eum.', 'Error enim possimus libero ipsam. Occaecati molestiae expedita nobis corrupti ex. Sunt blanditiis asperiores dolorum enim culpa dolorum. Nulla voluptates aliquid ipsa dolor ut nulla ea.', 'Et sequi architecto perferendis placeat velit. Et laudantium qui quidem iusto quae laboriosam aliquid. Tempora sit id aut ut rerum. Et nesciunt vel aut. Repudiandae soluta quia a voluptatem. Atque rerum ratione ducimus magnam fuga laborum odio.', 1, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(14, 'Quisquam omnis non aliquid facere sed doloremque sint.', 'Porro cumque labore enim ea harum animi qui. Voluptatibus nihil adipisci deserunt. Ea laboriosam iusto aut incidunt.', 'Autem sint iste sit et. Voluptas porro ea ut eum laborum. Consectetur amet odio et vel rerum consequatur voluptas illo. Facere quas vero sit sed modi cum. Dignissimos in voluptas consequatur quam laboriosam. Consequuntur alias qui aut quod enim sint sapiente.', 1, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(15, 'Fuga aut sit iusto.', 'Ipsam sed autem autem eos omnis omnis. Veniam ut rerum debitis sunt doloribus nesciunt. Aliquam eveniet nihil commodi nam voluptatem ut ut. Aut ullam ut exercitationem natus.', 'Inventore amet fugiat quos at. Totam et odio dolores et. Labore quis et maxime rerum vel tempora. Exercitationem sit labore aut nisi. Magni dicta eius aut esse. Consequatur rem reiciendis provident inventore rerum debitis nobis. In odio voluptas et aut et officiis pariatur. Vitae ex libero est eaque consequatur sed molestias.', 1, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(16, 'Eum quae ut ut rerum nulla.', 'Provident est vel qui harum impedit laudantium ducimus. Deserunt similique deserunt nostrum velit nihil itaque. Voluptatem deleniti explicabo minima quam minima.', 'Voluptatibus commodi earum consequatur aut laborum sed. Est dolor necessitatibus necessitatibus a repudiandae eveniet. Earum cum reprehenderit animi aperiam eveniet dolore temporibus laudantium. Esse quia sunt mollitia assumenda architecto tempora porro. Est commodi voluptatem at quis consequatur accusamus. Rerum totam repellat animi deleniti. Qui exercitationem nostrum error. Quod voluptas quos voluptatem deleniti. At labore sed nulla aut illum omnis.', 0, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(17, 'Non qui eos qui quibusdam neque dolores.', 'Eos commodi illo ut fuga. Amet nobis ratione provident aliquid. Eveniet quaerat qui pariatur modi ea.', 'Illum at consequatur totam ab laborum eos. Nihil vero itaque qui autem. Rerum nobis velit velit assumenda ullam quae. Vel non ipsum corporis voluptas. Velit est voluptates fugit quaerat. Hic alias sunt consectetur aliquid aut vero beatae.', 0, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(18, 'Inventore excepturi quia facere tempore odit.', 'Molestias eum illum et qui. Cupiditate exercitationem voluptas dolorem sed libero ipsum. Architecto vel in consectetur quaerat ea fugit provident repudiandae. In sunt voluptas impedit velit ullam labore neque.', 'Quia quidem aperiam quia officia sapiente facilis. Sint eum illo officia aut et et quidem. Quia tempore officiis commodi modi. Qui ut similique accusamus omnis quisquam id odio. Consequatur quis alias est. Asperiores dolorem vero explicabo sed enim eligendi. Quo sint dolor debitis amet qui et labore ut.', 0, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(19, 'Voluptatem minus velit velit sit perspiciatis.', 'Iste accusantium qui id qui velit ut quia ipsum. Eos et fugiat quo cumque. Ut assumenda ex aperiam sit officiis praesentium necessitatibus sit. Voluptates ab quia est accusamus recusandae nulla eum.', 'Aut eos facilis est omnis nobis a praesentium. Ut dolorem dignissimos ea accusantium sed natus placeat. Vero fuga quia ut voluptatum. Eum voluptatibus totam esse consequatur libero aut. Perferendis aut est expedita veniam eum deserunt officiis est. Quia officia quia debitis expedita exercitationem qui est. Tempora voluptates sit a. Asperiores tempore veritatis deserunt omnis. Eum ut saepe alias libero sit doloremque mollitia.', 1, '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(20, 'Neque omnis aut tempore vero in dolorem aliquid.', 'Unde ea ipsam molestiae. Maxime dolor voluptas omnis omnis est. Dolores molestias expedita et omnis consequatur beatae. Cum quia omnis molestiae in. Dolor reprehenderit ex optio recusandae quidem provident voluptatem harum.', 'Sed quos odit eum. Similique vel alias nemo. Magnam harum sed dolorum quis a odit recusandae porro. In sed magni consequatur eaque quis consequatur accusamus. Minus qui enim perferendis iure totam sint excepturi. Quos fugit voluptate consequatur sit aliquam. Sed magni tempore asperiores. A maiores quas repellendus numquam aut. Perspiciatis consequatur aut sint quis voluptatem. Harum quisquam quidem quos sed dignissimos rerum.', 1, '2024-08-28 20:23:28', '2024-09-03 05:21:41'),
+(21, 'F Tsu', 'Tsu succ', 'Tsu succ', 1, '2024-08-30 01:52:39', '2024-09-11 23:48:48'),
+(22, 'Pound yo mom', 'Pound yo mom', 'The only pound I need is me pounding yo mom', 0, '2024-08-31 23:40:00', '2024-08-31 23:40:00'),
+(23, 'Berlin boys and Stuttgart girls', '[Strophe 1]\r\nLondon Boys sind so schlau (so schlau)\r\nVersprechen den Himmel so blau (so blau)\r\nDoch bald schon ziehen sie sich aus der Affär\'\r\n(Schubidu) Sie spiel\'n immer die Famosen (Famosen)\r\nBringen sogar Rosen (Rosen)\r\nDoch bald kennen sie dich einfach nicht mehr\r\n\r\n[Refrain 1]\r\nBerlin Boys sind immer für dich da\r\nBerlin Boys sind einfach wunderbar\r\nWas immer sie auch machen (Schubidu, ah)\r\nSie bringen dich zum Lachen\r\nUnd sie lieben dich immer, ist doch klar\r\nBerlin Boys sind im Herzen wunderbar\r\n\r\n[Post-Refrain]\r\nSchu-wap, sind im Herzen\r\nSchu-wap, sind im Herzen\r\nSchu-wap, sind im Herzen\r\nSchu-wap, Schubidu\r\n\r\n[Strophe 2]\r\nParis Girls sind hitzig (hitzig)\r\nSagen dir du seist so witzig (witzig)\r\nVersprechen dir für immer da zu sein (Schu-du)\r\nDoch sie sind solche Diven (Diven)\r\nMöchten sich gar nicht verlieben (verlieben)\r\nBrechen Herzen ohne Skrupel ganz gemein\r\n\r\n[Refrain 2]\r\nStuttgart Girls sind immer für dich da\r\nStuttgart Girls sind einfach wunderbar\r\nWas immer sie auch machen (Schubidu, ah)\r\nSie bringen dich zum Lachen\r\nUnd sie lieben dich immer, ist doch klar\r\nStuttgart Girls sind im Herzen immer da\r\n\r\n[Outro]\r\nSchu-wap, sind im Herzen\r\nSchu-wap, sind im Herzen\r\nSchu-wap, sind im Herzen\r\nSchu-wap, Schubidu (oh, oh)\r\nSchu-wap, sind im Herzen\r\nSchu-wap, sind im Herzen (Berlin Boys, oh, oh)\r\nSchu-wap, sind im Herzen (und Stuttgart Girls)\r\nSchu-wap, Schubidu (oh, oh)\r\nSchu-wap, sind im Herzen\r\nSchu-wap, sind im Herzen (Berlin Boys, oh, oh)\r\nSchu-wap, sind im Herzen (und Stuttgart Girls)\r\nSchu-wap, Schubidu (oh, oh)\r\nSchu-wap, sind im Herzen\r\nSchu-wap, sind im Herzen (Berlin Boys, oh, oh)\r\nSchu-wap, sind im Herzen (und Stuttgart Girls)\r\nSchu-wap, Schubidu (oh, oh)', '[Refrain 2]\r\nStuttgart Girls sind immer für dich da\r\nStuttgart Girls sind einfach wunderbar\r\nWas immer sie auch machen (Schubidu, ah)\r\nSie bringen dich zum Lachen\r\nUnd sie lieben dich immer, ist doch klar\r\nStuttgart Girls sind im Herzen immer da\r\n\r\n[Outro]\r\nSchu-wap, sind im Herzen\r\nSchu-wap, sind im Herzen\r\nSchu-wap, sind im Herzen\r\nSchu-wap, Schubidu (oh, oh)\r\nSchu-wap, sind im Herzen\r\nSchu-wap, sind im Herzen (Berlin Boys, oh, oh)\r\nSchu-wap, sind im Herzen (und Stuttgart Girls)\r\nSchu-wap, Schubidu (oh, oh)\r\nSchu-wap, sind im Herzen\r\nSchu-wap, sind im Herzen (Berlin Boys, oh, oh)\r\nSchu-wap, sind im Herzen (und Stuttgart Girls)\r\nSchu-wap, Schubidu (oh, oh)\r\nSchu-wap, sind im Herzen\r\nSchu-wap, sind im Herzen (Berlin Boys, oh, oh)\r\nSchu-wap, sind im Herzen (und Stuttgart Girls)\r\nSchu-wap, Schubidu (oh, oh)', 1, '2024-09-11 23:52:49', '2024-09-27 05:07:02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Floy Pfannerstill', 'hanna.breitenberg@example.net', '2024-08-28 20:23:27', '$2y$12$35IRoir6.VXB4LrVaYDjv.n1gJ2cO9EeeG4qJ4GB1K1O6qZloFW5q', 'HHSuPCwfhS', '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(2, 'Quinton Ferry', 'romaine.collier@example.net', '2024-08-28 20:23:28', '$2y$12$35IRoir6.VXB4LrVaYDjv.n1gJ2cO9EeeG4qJ4GB1K1O6qZloFW5q', 'Cw1nIxXDvg', '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(3, 'Mr. Jakob Koelpin', 'hstamm@example.net', '2024-08-28 20:23:28', '$2y$12$35IRoir6.VXB4LrVaYDjv.n1gJ2cO9EeeG4qJ4GB1K1O6qZloFW5q', 'wIyekURoLw', '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(4, 'Zackery Cartwright', 'ima.koepp@example.net', '2024-08-28 20:23:28', '$2y$12$35IRoir6.VXB4LrVaYDjv.n1gJ2cO9EeeG4qJ4GB1K1O6qZloFW5q', 'UBPNR3xN7I', '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(5, 'Jacey Simonis', 'antonio83@example.com', '2024-08-28 20:23:28', '$2y$12$35IRoir6.VXB4LrVaYDjv.n1gJ2cO9EeeG4qJ4GB1K1O6qZloFW5q', 'orTY692fCu', '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(6, 'Edwin Schmitt', 'bahringer.teagan@example.com', '2024-08-28 20:23:28', '$2y$12$35IRoir6.VXB4LrVaYDjv.n1gJ2cO9EeeG4qJ4GB1K1O6qZloFW5q', 'yopzmrhZ6j', '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(7, 'Amiya Monahan MD', 'vivienne17@example.net', '2024-08-28 20:23:28', '$2y$12$35IRoir6.VXB4LrVaYDjv.n1gJ2cO9EeeG4qJ4GB1K1O6qZloFW5q', 'S0Zwjzkpes', '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(8, 'Laurianne Kreiger', 'verla16@example.net', '2024-08-28 20:23:28', '$2y$12$35IRoir6.VXB4LrVaYDjv.n1gJ2cO9EeeG4qJ4GB1K1O6qZloFW5q', 'cAGRE8tyP0', '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(9, 'Lela Bartoletti', 'bessie67@example.com', '2024-08-28 20:23:28', '$2y$12$35IRoir6.VXB4LrVaYDjv.n1gJ2cO9EeeG4qJ4GB1K1O6qZloFW5q', 'fainTzzP2M', '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(10, 'Margarett Batz', 'runolfsson.gene@example.net', '2024-08-28 20:23:28', '$2y$12$35IRoir6.VXB4LrVaYDjv.n1gJ2cO9EeeG4qJ4GB1K1O6qZloFW5q', 'hEUsE2PPMA', '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(11, 'Ms. Jayda Lemke I', 'botsford.jeremy@example.net', NULL, '$2y$12$35IRoir6.VXB4LrVaYDjv.n1gJ2cO9EeeG4qJ4GB1K1O6qZloFW5q', 'ZVTmQwCrXg', '2024-08-28 20:23:28', '2024-08-28 20:23:28'),
+(12, 'Mr. Alex Volkman', 'veum.maximo@example.org', NULL, '$2y$12$35IRoir6.VXB4LrVaYDjv.n1gJ2cO9EeeG4qJ4GB1K1O6qZloFW5q', 'NPTCgEwB1d', '2024-08-28 20:23:28', '2024-08-28 20:23:28');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `cache`
+--
+ALTER TABLE `cache`
+  ADD PRIMARY KEY (`key`);
+
+--
+-- Indexes for table `cache_locks`
+--
+ALTER TABLE `cache_locks`
+  ADD PRIMARY KEY (`key`);
+
+--
+-- Indexes for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `jobs`
+--
+ALTER TABLE `jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jobs_queue_index` (`queue`);
+
+--
+-- Indexes for table `job_batches`
+--
+ALTER TABLE `job_batches`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_reset_tokens`
+--
+ALTER TABLE `password_reset_tokens`
+  ADD PRIMARY KEY (`email`);
+
+--
+-- Indexes for table `sessions`
+--
+ALTER TABLE `sessions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sessions_user_id_index` (`user_id`),
+  ADD KEY `sessions_last_activity_index` (`last_activity`);
+
+--
+-- Indexes for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_email_unique` (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `jobs`
+--
+ALTER TABLE `jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
