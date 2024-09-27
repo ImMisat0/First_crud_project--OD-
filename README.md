@@ -31,16 +31,16 @@ php artisan serve
 This will start the server, after that just ctrl+click on the link.
 
 ## Features
-1.View Task List:
+1. View Task List:
 Users can easily view a list of tasks, providing a clear overview of both completed and pending tasks.
 
-2.Add New Tasks:
+2. Add New Tasks:
 Users can create and add new tasks to the list. Each task can include important details such as a description or due date (if applicable).
 
-3.Delete Tasks:
+3. Delete Tasks:
 Users can remove tasks from the list when they are no longer needed.
 
-4.Mark Task as Completed/Not Completed:
+4. Mark Task as Completed/Not Completed:
 Users can toggle tasks between completed and not completed states, allowing for better tracking of task progress.
 
 ## Troubleshooting
