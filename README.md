@@ -45,7 +45,23 @@ Users can toggle tasks between completed and not completed states, allowing for 
 
 ## Troubleshooting
 - Problem: Cannot connect to the database.
-+ Solution | Check if the database credentials in the `.env` file are correct.
++ Solution: Check if the database credentials in the `.env` file are correct.
+
+- Problem: No application encryption key has been specified
++ Solution (step-by-step): 
+1. Navigate to the root of your Laravel project in the terminal and run:
+```
+php artisan key:generate
+```
+2. Check the `env.` file, make sure it exists in the project root. You can create one by copy the `env.example`:
+``` 
+cp .env.example .env
+```
+3. After confirming/setting up the `.env` file, run the `php artisan key:generate` command again to resolve the issue.
+4. (Optional) Clearing the config caches after generating the key:
+```
+php artisan config:clear
+```
 
 
 ## Contribution
