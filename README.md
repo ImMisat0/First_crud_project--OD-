@@ -1,6 +1,16 @@
 # OperationDeadbolt
 This project is a Basic CRUD function Task list, built using Laravel framework along with TailwindCSS & AlpineJS.
 
+## **IMPORTANT NOTE BEFORE INSTALLING** 
+Before cloning the repo, you should check the version of your Laravel/Composer/PHP version
+My project version are:
+```
+Composer version 2.7.4 
+PHP version 8.2.12
+Laravel Framework 11.21.0
+```
+It should help with preventing some unexpected issues from appearing. 
+
 # DOWNLOADING GUIDE
 ## Installation 
 1. Cloning the repo:
