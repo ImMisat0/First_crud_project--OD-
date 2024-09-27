@@ -51,11 +51,11 @@ Users can toggle tasks between completed and not completed states, allowing for 
 ## Contribution
 Any contributions to the project are welcome and very much appriciate. 
 To contribute: 
-1 - Copy the repository.
-2 - Create a new branch (`git checkout -b feature-branch`).
-3 - Commit your changes (`git commit -am 'Add new feature'`).
-4 - Push to the branch (`git push origin feature-branch`).
-5 - Creating a pull request.
+1. Copy the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Creating a pull request.
 
 ## Credits
 - Tailwind.Css(https://tailwindcss.com) - for styling.
